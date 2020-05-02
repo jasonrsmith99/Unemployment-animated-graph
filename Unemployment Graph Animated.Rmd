@@ -9,16 +9,20 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+#setup work
+
 ```{r}
 library(tidyverse)
 library(gganimate)
 library(readxl)
+library(gifski)
 setwd("C:\\Users\\Jason\\OneDrive\\Documents\\R Projects\\Unemployment graph meme")
 
 unemployment <- read_excel("Unemployment.xlsx")
 
 unemployment$week <- as.Date(unemployment$week, origin="1899-12-30")
 ```
+#Create the graph
 
 ```{r}
 graph <- ggplot(data = unemployment, aes(x=week, y=claims, group=1))+
@@ -30,6 +34,7 @@ graph <- ggplot(data = unemployment, aes(x=week, y=claims, group=1))+
   labs(title = "U.S. Unemployment Claims (1967- April 2020)", x = "Time", y = "Claims")+
   theme(axis.title = element_text(size = 15, face = "bold"), title = element_text(size=20, face = 'bold'))
 ```
+#Animate and save
 
 ```{r}
 anim <- graph+
@@ -39,8 +44,7 @@ anim <- graph+
 
 options(gganimate.dev_args = list(width=800, height=600))
 
-animate(anim, nframes = 300, end_pause = 10)
+animate(anim, nframes = 300, end_pause = 10, renderer = gifski_renderer("unemployment_graph.gif"))
 
-anim_save("Unemployment_Graph.gif")
 ```
 
