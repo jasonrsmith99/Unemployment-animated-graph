@@ -2,7 +2,8 @@
 title: "Unemployment Claims Animated"
 author: "Jason Smith"
 date: "5/2/2020"
-output: html_document
+output: github_document
+
 ---
 
 ```{r setup, include=FALSE}
