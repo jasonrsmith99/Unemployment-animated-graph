@@ -43,9 +43,9 @@ anim <- graph+
   ease_aes('bounce-out')+
   view_follow()
 
-options(gganimate.dev_args = list(width=800, height=600))
-
-animate(anim, nframes = 300, end_pause = 10, renderer = gifski_renderer("unemployment_graph.gif"))
+animate(anim, nframes = 300, end_pause = 10, height=600, width=600)
+ 
+anim_save("unemployment_graph.gif")
 
 ```
 

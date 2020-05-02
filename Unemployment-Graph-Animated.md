@@ -9,14 +9,14 @@ Jason Smith
 library(tidyverse)
 ```
 
-    ## -- Attaching packages --------------------------------------------------------------------------------- tidyverse 1.3.0 --
+    ## -- Attaching packages ---------------------------------------------------------------------- tidyverse 1.3.0 --
 
     ## v ggplot2 3.3.0     v purrr   0.3.4
-    ## v tibble  3.0.1     v dplyr   0.8.5
+    ## v tibble  3.0.0     v dplyr   0.8.5
     ## v tidyr   1.0.2     v stringr 1.4.0
     ## v readr   1.3.1     v forcats 0.5.0
 
-    ## -- Conflicts ------------------------------------------------------------------------------------ tidyverse_conflicts() --
+    ## -- Conflicts ------------------------------------------------------------------------- tidyverse_conflicts() --
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
 
@@ -52,9 +52,11 @@ anim <- graph+
   ease_aes('bounce-out')+
   view_follow()
 
-options(gganimate.dev_args = list(width=800, height=600))
-
-animate(anim, nframes = 300, end_pause = 10, renderer = gifski_renderer("unemployment_graph.gif"))
+animate(anim, nframes = 300, end_pause = 10, height=600, width=600)
 ```
 
 ![](Unemployment-Graph-Animated_files/figure-gfm/unnamed-chunk-3-1.gif)<!-- -->
+
+``` r
+anim_save("unemployment_graph.gif")
+```
