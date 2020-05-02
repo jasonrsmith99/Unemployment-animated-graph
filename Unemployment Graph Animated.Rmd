@@ -17,7 +17,7 @@ library(tidyverse)
 library(gganimate)
 library(readxl)
 library(gifski)
-setwd("C:\\Users\\Jason\\OneDrive\\Documents\\R Projects\\Unemployment graph meme")
+setwd("C:\\Users\\Jason\\OneDrive\\Documents\\R Projects\\Unemployment graph")
 
 unemployment <- read_excel("Unemployment.xlsx")
 
